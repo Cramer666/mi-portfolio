@@ -11,7 +11,7 @@ const ContenidoSobreMi: React.FC = () => {
 
       <div className="ml-8 space-y-6">
         <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
-          <h3 className="text-xl font-bold text-green-400 mb-3">📚 Formación</h3>
+          <h3 className="text-xl font-bold text-green-400 mb-3">Formación</h3>
           <p className="text-gray-300">
             • Tecnicatura en Programación Informática – Universidad Nacional de Quilmes (UNQ)
             <br />
@@ -24,11 +24,11 @@ const ContenidoSobreMi: React.FC = () => {
         </div>
 
         <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
-          <h3 className="text-xl font-bold text-blue-400 mb-3">💼 Experiencia</h3>
+          <h3 className="text-xl font-bold text-blue-400 mb-3">Experiencia</h3>
           <div className="space-y-4">
             <div>
               <p className="text-white font-semibold">
-                Desarrolladora Full Stack (en progreso 🚀)
+                Desarrolladora Full Stack (en progreso)
               </p>
               <p className="text-gray-400 text-sm">
                 Experiencia profesional: próximamente
@@ -43,7 +43,7 @@ const ContenidoSobreMi: React.FC = () => {
         </div>
 
         <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
-          <h3 className="text-xl font-bold text-purple-400 mb-3">🎯 Intereses</h3>
+          <h3 className="text-xl font-bold text-purple-400 mb-3">Intereses</h3>
           <p className="text-gray-300">
             Desarrollo backend, creación de APIs, buenas prácticas,
             arquitectura de software, aprendizaje continuo

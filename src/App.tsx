@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useTheme } from './hook/useTheme';
 import BarraSuperior from './componentes/BarraSuperior';
 import BarraLateral from './componentes/BarraLateral';
 import ExploradorArchivos from './componentes/ExploradorArchivos';
@@ -12,7 +11,6 @@ import ContenidoHabilidades from './secciones/ContenidoHabilidades';
 import ContenidoContacto from './secciones/ContenidoContacto';
 
 const App: React.FC = () => {
-  const { isDark } = useTheme();
   const [archivoAbierto, setArchivoAbierto] = useState('inicio.jsx');
 
   const renderContenido = () => {
@@ -33,11 +31,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className={`h-screen flex flex-col font-mono transition-colors ${
-      isDark
-        ? 'bg-[#1e1e1e] text-gray-300'
-        : 'bg-white text-gray-800'
-    }`}>
+    <div className="h-screen bg-[#1e1e1e] text-gray-300 flex flex-col font-mono">
       <BarraSuperior />
      
       <div className="flex flex-1 overflow-hidden">
@@ -53,9 +47,7 @@ const App: React.FC = () => {
             setArchivoAbierto={setArchivoAbierto}
           />
          
-          <div className={`flex-1 overflow-y-auto transition-colors ${
-            isDark ? 'bg-[#1e1e1e]' : 'bg-gray-50'
-          }`}>
+          <div className="flex-1 overflow-y-auto bg-[#1e1e1e]">
             {renderContenido()}
           </div>
          
