@@ -2,7 +2,16 @@ import type { FormularioContacto } from '../tipos';
 
 export const enviarEmail = async (datos: FormularioContacto): Promise<boolean> => {
   try {
-    const response = await fetch('/api/contacto', {
+    // Detectar si estamos en desarrollo o producción
+    const baseUrl = process.env.NODE_ENV === 'production' 
+      ? 'https://mi-portfolio-three-rose.vercel.app/'
+      : 'http://localhost:3001';
+
+    const endpoint = `${baseUrl}/api/contacto`;
+
+    console.log('📤 Enviando a:', endpoint);
+
+    const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -12,6 +21,8 @@ export const enviarEmail = async (datos: FormularioContacto): Promise<boolean> =
 
     if (!response.ok) {
       console.error('❌ Error HTTP:', response.status);
+      const errorData = await response.json();
+      console.error('❌ Detalle error:', errorData);
       return false;
     }
 
