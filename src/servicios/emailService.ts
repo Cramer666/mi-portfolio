@@ -7,13 +7,17 @@ export const enviarEmail = async (datos: FormularioContacto): Promise<boolean> =
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(datos)
+      body: JSON.stringify(datos),
     });
 
+    if (!response.ok) {
+      console.error('❌ Error HTTP:', response.status);
+      return false;
+    }
+
     const resultado = await response.json();
-    
     console.log('✅ Respuesta del servidor:', resultado);
-    
+
     return resultado.ok === true;
   } catch (error) {
     console.error('❌ Error al enviar:', error);
