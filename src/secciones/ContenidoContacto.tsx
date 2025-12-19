@@ -150,13 +150,13 @@ const ContenidoContacto: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 opacity-70">
           <div className="flex items-center gap-2">
-            <Mail size={18} /> <span>tu-email@ejemplo.com</span>
+            <Mail size={18} /> <span>tluciaperronee.dev@gmail.com</span>
           </div>
           <div className="flex items-center gap-2">
-            <Github size={18} /> <span>github.com/tu-usuario</span>
+            <Github size={18} /> <span>github.com/...</span>
           </div>
           <div className="flex items-center gap-2">
-            <Linkedin size={18} /> <span>linkedin.com/in/tu-perfil</span>
+            <Linkedin size={18} /> <span>linkedin.com/in/.../span>
           </div>
         </div>
       </div>
