@@ -18,7 +18,13 @@ const en = {
     error: 'Please fill in all fields.',
     otros: 'You can also contact me directly via:',
   }
-
+  pestanas: {
+    inicio: 'home.jsx',
+    sobreMi: 'about-me.jsx',
+    proyectos: 'projects.jsx',
+    habilidades: 'skills.jsx',
+    contacto: 'contact.jsx',
+  }
 };
 
 export default en;
