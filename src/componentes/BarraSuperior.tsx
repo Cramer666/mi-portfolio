@@ -1,10 +1,12 @@
 import React from 'react';
 import { Code, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
+import { useTranslation } from '../hooks/useTranslation';
 import BotonIdioma from './BotonIdioma';
 
 const BarraSuperior: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <div
@@ -19,13 +21,13 @@ const BarraSuperior: React.FC = () => {
       <div className="flex items-center gap-2">
         <Code className="text-blue-400" size={20} />
         <span className="font-semibold text-sm sm:text-base text-black dark:text-white">
-          Portfolio Lucia Perrone
+          {t.app.title}
         </span>
       </div>
 
       {/* DERECHA */}
       <div className="ml-auto flex items-center gap-3">
-        {/* BOTÓN TEMA (siempre visible) */}
+        {/* BOTÓN TEMA */}
         <button
           onClick={toggleTheme}
           className="p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition"
@@ -38,7 +40,7 @@ const BarraSuperior: React.FC = () => {
           )}
         </button>
 
-        {/* BOTÓN IDIOMA – SOLO MOBILE */}
+        {/* BOTÓN IDIOMA SOLO MOBILE */}
         <div className="md:hidden">
           <BotonIdioma />
         </div>
