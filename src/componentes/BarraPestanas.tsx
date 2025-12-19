@@ -1,21 +1,34 @@
 import React from 'react';
 import { FileText, User, Code, Mail } from 'lucide-react';
 import { Pestana } from '../tipos';
+import { useLanguage } from '../context/LanguageContext';
+import es from '../i18n/es';
+import en from '../i18n/en';
 
 interface Props {
   archivoAbierto: string;
   setArchivoAbierto: (archivo: string) => void;
 }
 
-const pestanas: Pestana[] = [
-  { id: 'inicio.jsx', icono: FileText, color: 'text-blue-400' },
-  { id: 'sobre-mi.jsx', icono: User, color: 'text-green-400' },
-  { id: 'proyectos.jsx', icono: Code, color: 'text-yellow-400' },
-  { id: 'habilidades.jsx', icono: Code, color: 'text-purple-400' },
-  { id: 'contacto.jsx', icono: Mail, color: 'text-purple-400' }
+type PestanaI18nKey =
+  | 'inicio'
+  | 'sobreMi'
+  | 'proyectos'
+  | 'habilidades'
+  | 'contacto';
+
+const pestanas: (Pestana & { labelKey: PestanaI18nKey })[] = [
+  { id: 'inicio.jsx', labelKey: 'inicio', icono: FileText, color: 'text-blue-400' },
+  { id: 'sobre-mi.jsx', labelKey: 'sobreMi', icono: User, color: 'text-green-400' },
+  { id: 'proyectos.jsx', labelKey: 'proyectos', icono: Code, color: 'text-yellow-400' },
+  { id: 'habilidades.jsx', labelKey: 'habilidades', icono: Code, color: 'text-purple-400' },
+  { id: 'contacto.jsx', labelKey: 'contacto', icono: Mail, color: 'text-purple-400' }
 ];
 
 const BarraPestanas: React.FC<Props> = ({ archivoAbierto, setArchivoAbierto }) => {
+  const { lang } = useLanguage();
+  const t = lang === 'es' ? es : en;
+
   return (
     <div
       className="
@@ -29,7 +42,8 @@ const BarraPestanas: React.FC<Props> = ({ archivoAbierto, setArchivoAbierto }) =
           key={pestana.id}
           onClick={() => setArchivoAbierto(pestana.id)}
           className={`
-            flex items-center gap-2 px-3 sm:px-4 py-3 border-r cursor-pointer whitespace-nowrap
+            flex items-center gap-2 px-3 sm:px-4 py-3
+            border-r cursor-pointer whitespace-nowrap
             border-gray-300 dark:border-gray-800
             ${
               archivoAbierto === pestana.id
@@ -40,7 +54,7 @@ const BarraPestanas: React.FC<Props> = ({ archivoAbierto, setArchivoAbierto }) =
         >
           <pestana.icono size={16} className={pestana.color} />
           <span className="text-xs sm:text-sm text-black dark:text-gray-200">
-            {pestana.id}
+            {t.pestanas[pestana.labelKey]}
           </span>
         </div>
       ))}
