@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Check, AlertCircle } from 'lucide-react';
+import { Send, Check, AlertCircle, Mail, Github, Linkedin } from 'lucide-react';
 import { FormularioContacto, EstadoEnvio } from '../tipos';
 import { enviarEmail } from '../servicios/emailService';
 
@@ -90,18 +90,26 @@ const ContenidoContacto: React.FC = () => {
         </div>
 
         {estadoEnvio === 'exito' && (
-          <div className="flex items-center gap-3 p-4 rounded border
-            bg-green-100 border-green-400
-            dark:bg-green-900/30 dark:border-green-500">
+          <div
+            className="
+              flex items-center gap-3 p-4 rounded border
+              bg-green-100 border-green-400
+              dark:bg-green-900/30 dark:border-green-500
+            "
+          >
             <Check className="text-green-500" />
             <span>¡Mensaje enviado con éxito!</span>
           </div>
         )}
 
         {estadoEnvio === 'error' && (
-          <div className="flex items-center gap-3 p-4 rounded border
-            bg-red-100 border-red-400
-            dark:bg-red-900/30 dark:border-red-500">
+          <div
+            className="
+              flex items-center gap-3 p-4 rounded border
+              bg-red-100 border-red-400
+              dark:bg-red-900/30 dark:border-red-500
+            "
+          >
             <AlertCircle className="text-red-500" />
             <span>Error al enviar. Completa todos los campos.</span>
           </div>
@@ -110,13 +118,45 @@ const ContenidoContacto: React.FC = () => {
         <button
           onClick={manejarEnvio}
           disabled={enviando}
-          className="flex items-center gap-2 px-6 py-3 rounded font-semibold
+          className="
+            flex items-center gap-2 px-6 py-3 rounded font-semibold
             bg-blue-600 hover:bg-blue-500 text-white
-            disabled:bg-gray-400"
+            disabled:bg-gray-400
+          "
         >
           <Send size={18} />
           {enviando ? 'Enviando...' : 'Enviar Mensaje'}
         </button>
+      </div>
+
+      {/* === CONTACTO DIRECTO (AGREGADO) === */}
+      <div
+        className="
+          mt-10 ml-8 max-w-2xl p-6 rounded-lg border
+          bg-white text-gray-800 border-gray-300
+          dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700
+        "
+      >
+        <p className="mb-4">
+          También podés contactarme directamente por:
+        </p>
+
+        <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex items-center gap-2 opacity-70">
+            <Mail size={18} />
+            <span>tu-email@ejemplo.com</span>
+          </div>
+
+          <div className="flex items-center gap-2 opacity-70">
+            <Github size={18} />
+            <span>github.com/tu-usuario</span>
+          </div>
+
+          <div className="flex items-center gap-2 opacity-70">
+            <Linkedin size={18} />
+            <span>linkedin.com/in/tu-perfil</span>
+          </div>
+        </div>
       </div>
 
       <div className="mt-6 text-gray-800 dark:text-white">{'}'}</div>
