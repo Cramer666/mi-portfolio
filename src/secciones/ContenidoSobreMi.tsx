@@ -1,23 +1,31 @@
 import React from 'react';
 import { Download } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import es from '../i18n/es';
+import en from '../i18n/en';
 
 const ContenidoSobreMi: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = lang === 'es' ? es : en;
+
+const sections = [
+    { title: t.sobreMi.formacion, color: 'green', key: 'formacion' },
+    { title: t.sobreMi.experiencia, color: 'blue', key: 'experiencia' },
+    { title: t.sobreMi.intereses, color: 'purple', key: 'intereses' },
+  ];
+
   return (
     <div className="p-8 animate-fade-in">
       <div className="mb-6">
         <span className="text-purple-500 dark:text-purple-400">function</span>{' '}
-        <span className="text-yellow-500 dark:text-yellow-300">sobreMi</span>
+        <span className="text-yellow-500 dark:text-yellow-300">{t.sobreMi.fn}</span>
         <span className="text-gray-800 dark:text-white">() {'{'}</span>
       </div>
 
       <div className="ml-8 space-y-6">
-        {[
-          { title: 'Formación', color: 'green' },
-          { title: 'Experiencia', color: 'blue' },
-          { title: 'Intereses', color: 'purple' },
-        ].map(({ title, color }) => (
+        {sections.map(({ title, color, key }) => (
           <div
-            key={title}
+            key={key}
             className="
               p-6 rounded-lg border
               bg-white text-gray-800 border-gray-300
@@ -30,41 +38,36 @@ const ContenidoSobreMi: React.FC = () => {
               {title}
             </h3>
 
-            {title === 'Formación' && (
-              <p>
-                • Tecnicatura en Programación Informática – UNQ<br />
-                • Desarrollo web Full Stack<br />
-                • Backend con Node.js, Express y MongoDB<br />
-                • Frontend con React, Vite y TypeScript
+            {key === 'formacion' && (
+              <p className="whitespace-pre-line">
+                {t.sobreMi.formacionDesc}
               </p>
             )}
 
-            {title === 'Experiencia' && (
+            {key === 'experiencia' && (
               <>
                 <p className="font-semibold">
-                  Desarrolladora Full Stack (en progreso)
+                  {t.sobreMi.experienciaTitulo}
                 </p>
                 <p className="text-sm opacity-80">
-                  Experiencia profesional: próximamente
+                  {t.sobreMi.experienciaSubtitulo}
                 </p>
                 <p className="mt-2">
-                  Proyectos propios, trabajos académicos y muchas horas
-                  debuggeando 😅
+                  {t.sobreMi.experienciaDesc}
                 </p>
               </>
             )}
 
-            {title === 'Intereses' && (
+            {key === 'intereses' && (
               <p>
-                Backend, APIs, buenas prácticas, arquitectura de software
-                y aprendizaje continuo.
+                {t.sobreMi.interesesDesc}
               </p>
             )}
           </div>
         ))}
       </div>
 
-      {/* === BLOQUE CV (AGREGADO) === */}
+      {/* === BLOQUE CV === */}
       <div
         className="
           mt-10 ml-8 p-6 rounded-lg border
@@ -73,7 +76,7 @@ const ContenidoSobreMi: React.FC = () => {
         "
       >
         <p className="mb-4">
-          Si querés conocer más sobre mi experiencia y formación:
+          {t.sobreMi.cvTexto}
         </p>
 
         <a
@@ -87,7 +90,7 @@ const ContenidoSobreMi: React.FC = () => {
           "
         >
           <Download size={18} />
-          Descargar CV
+          {t.sobreMi.cvBoton}
         </a>
       </div>
 

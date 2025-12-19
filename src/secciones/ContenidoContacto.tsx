@@ -140,34 +140,34 @@ const ContenidoContacto: React.FC = () => {
         </button>
       </div>
 
-     {/* === CONTACTO DIRECTO === */}
-    <div
-      className="
-        mt-10 ml-8 max-w-2xl p-6 rounded-lg border
-        bg-white text-gray-800 border-gray-300
-        dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700
-      "
-    >
-    <p className="mb-4">
-      {t.contacto.otros}
-    </p>
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="flex items-center gap-2 opacity-70">
-          <Mail size={18} />
-          <span>tu-email@ejemplo.com</span>
-        </div>
-    
-        <div className="flex items-center gap-2 opacity-70">
-          <Github size={18} />
-          <span>github.com/tu-usuario</span>
-        </div>
-    
-        <div className="flex items-center gap-2 opacity-70">
-          <Linkedin size={18} />
-          <span>linkedin.com/in/tu-perfil</span>
+      {/* === CONTACTO DIRECTO === */}
+      <div
+        className="
+          mt-10 ml-8 max-w-2xl p-6 rounded-lg border overflow-hidden
+          bg-white text-gray-800 border-gray-300
+          dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700
+        "
+      >
+        <p className="mb-4">
+          {t.contacto.otros}
+        </p>
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-2 opacity-70 break-all">
+            <Mail size={18} className="flex-shrink-0" />
+            <span className="text-sm">luciaperrone.dev@gmail.com</span>
+          </div>
+
+          <div className="flex items-center gap-2 opacity-70 break-all">
+            <Github size={18} className="flex-shrink-0" />
+            <span className="text-sm">github.com/Cramer666</span>
+          </div>
+
+          <div className="flex items-center gap-2 opacity-70 break-all">
+            <Linkedin size={18} className="flex-shrink-0" />
+            <span className="text-sm">linkedin.com/in/luciaperrone-dev/</span>
+          </div>
         </div>
       </div>
-    </div>
       <div className="mt-6 text-gray-800 dark:text-white">{'}'}</div>
     </div>
   );

@@ -1,5 +1,8 @@
 import React from 'react';
-import { estructuraArchivos } from '../datos/estructuraArchivos';
+import { Home, User, FolderOpen, Zap, Mail } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
+import es from '../i18n/es';
+import en from '../i18n/en';
 
 interface Props {
   archivoAbierto: string;
@@ -7,6 +10,17 @@ interface Props {
 }
 
 const ExploradorArchivos: React.FC<Props> = ({ archivoAbierto, setArchivoAbierto }) => {
+  const { lang } = useLanguage();
+  const t = lang === 'es' ? es : en;
+
+  const iconos: { [key: string]: React.ReactNode } = {
+    'inicio': <Home size={16} className="text-blue-400" />,
+    'sobreMi': <User size={16} className="text-green-400" />,
+    'proyectos': <FolderOpen size={16} className="text-yellow-400" />,
+    'habilidades': <Zap size={16} className="text-purple-400" />,
+    'contacto': <Mail size={16} className="text-red-400" />
+  };
+
   return (
     <div
       className="
@@ -17,17 +31,17 @@ const ExploradorArchivos: React.FC<Props> = ({ archivoAbierto, setArchivoAbierto
     >
       <div className="p-3">
         <h3 className="text-xs font-semibold uppercase mb-3 text-gray-600 dark:text-gray-400">
-          Explorador
+          {t.explorador.titulo}
         </h3>
 
         <div className="space-y-1">
-          {estructuraArchivos.map((item, idx) => {
-            const isActive = archivoAbierto === (item.archivo || item.nombre);
+          {t.explorador.archivos.map((item, idx) => {
+            const isActive = archivoAbierto === item.archivo;
 
             return (
               <div
                 key={idx}
-                onClick={() => setArchivoAbierto(item.archivo || item.nombre)}
+                onClick={() => setArchivoAbierto(item.archivo)}
                 className={`
                   flex items-center gap-2 px-2 py-1 rounded cursor-pointer
                   text-black dark:text-gray-200
@@ -35,7 +49,7 @@ const ExploradorArchivos: React.FC<Props> = ({ archivoAbierto, setArchivoAbierto
                   ${isActive ? 'bg-gray-200 dark:bg-gray-700' : ''}
                 `}
               >
-                <item.icono size={16} className={item.color} />
+                {iconos[item.archivo]}
                 <span className="text-sm">{item.nombre}</span>
               </div>
             );

@@ -1,12 +1,18 @@
 import React from 'react';
-import { habilidades } from '../datos/habilidades';
+import { useLanguage } from '../context/LanguageContext';
+import es from '../i18n/es';
+import en from '../i18n/en';
 
 const ContenidoHabilidades: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = lang === 'es' ? es : en;
+  const habilidades = t.habilidades.skills;
+
   return (
     <div className="p-8 animate-fade-in">
       <div className="mb-6">
         <span className="text-purple-500 dark:text-purple-400">const</span>{' '}
-        <span className="text-blue-500 dark:text-blue-300">habilidades</span>{' '}
+        <span className="text-blue-500 dark:text-blue-300">{t.habilidades.fn}</span>{' '}
         <span className="text-gray-800 dark:text-white">= {'{'}</span>
       </div>
 
@@ -20,7 +26,11 @@ const ContenidoHabilidades: React.FC = () => {
               dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700
             "
           >
-            <h3 className="text-xl font-bold mb-4 capitalize">{grupo}</h3>
+            <h3 className="text-xl font-bold mb-4">
+              {grupo === 'frontend' && t.habilidades.frontend}
+              {grupo === 'backend' && t.habilidades.backend}
+              {grupo === 'herramientas' && t.habilidades.herramientas}
+            </h3>
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
               {lista.map((skill, i) => (

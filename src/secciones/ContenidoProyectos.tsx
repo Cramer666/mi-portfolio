@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
 import { Github, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { proyectos } from '../datos/proyectos';
+import { useLanguage } from '../context/LanguageContext';
+import { proyectosEN } from '../datos/proyectosEN';
+import es from '../i18n/es';
+import en from '../i18n/en';
 
 const ContenidoProyectos: React.FC = () => {
+  const { lang } = useLanguage();
+  const t = lang === 'es' ? es : en;
+  const proyectosLng = lang === 'es' ? proyectos : proyectosEN;
   const [expandido, setExpandido] = useState<number | null>(null);
 
   return (
     <div className="p-8 animate-fade-in">
       <div className="mb-6">
         <span className="text-purple-500 dark:text-purple-400">const</span>{' '}
-        <span className="text-blue-500 dark:text-blue-300">proyectos</span>{' '}
+        <span className="text-blue-500 dark:text-blue-300">{t.proyectos.fn}</span>{' '}
         <span className="text-gray-800 dark:text-white">= [</span>
       </div>
 
       <div className="ml-8 space-y-6">
-        {proyectos.map((proyecto, idx) => (
+        {proyectosLng.map((proyecto, idx) => (
           <div
             key={idx}
             className="
@@ -50,7 +57,7 @@ const ContenidoProyectos: React.FC = () => {
               className="flex items-center gap-2 text-purple-600 dark:text-purple-400 mb-4"
             >
               {expandido === idx ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-              {expandido === idx ? 'Ocultar características' : 'Ver características'}
+              {expandido === idx ? t.proyectos.ocultarCaracteristicas : t.proyectos.verCaracteristicas}
             </button>
 
             {expandido === idx && (
@@ -70,12 +77,12 @@ const ContenidoProyectos: React.FC = () => {
             )}
 
             <div className="flex gap-4">
-              <a href={proyecto.github} target="_blank" className="flex gap-2 text-blue-500">
-                <Github size={18} /> Código
+              <a href={proyecto.github} target="_blank" rel="noopener noreferrer" className="flex gap-2 text-blue-500">
+                <Github size={18} /> {t.proyectos.codigo}
               </a>
               {proyecto.demo && (
-                <a href={proyecto.demo} target="_blank" className="flex gap-2 text-green-500">
-                  <ExternalLink size={18} /> Demo
+                <a href={proyecto.demo} target="_blank" rel="noopener noreferrer" className="flex gap-2 text-green-500">
+                  <ExternalLink size={18} /> {t.proyectos.demo}
                 </a>
               )}
             </div>

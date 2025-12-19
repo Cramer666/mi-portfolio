@@ -7,14 +7,8 @@ const BotonIdioma: React.FC = () => {
   return (
     <button
       onClick={toggleLang}
-      title={lang === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
-      className="
-        w-8 h-8 flex items-center justify-center
-        rounded
-        text-lg
-        opacity-70 hover:opacity-100
-        transition
-      "
+      className="px-2 py-1 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition text-xl"
+      title="Cambiar idioma"
     >
       {lang === 'es' ? '🇦🇷' : '🇺🇸'}
     </button>
@@ -22,4 +16,3 @@ const BotonIdioma: React.FC = () => {
 };
 
 export default BotonIdioma;
-
