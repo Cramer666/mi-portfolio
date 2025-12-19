@@ -17,7 +17,7 @@ const es = {
     enviado: '¡Mensaje enviado con éxito!',
     error: 'Completá todos los campos.',
     otros: 'También podés contactarme directamente por:',
-  }
+  },
   pestanas: {
     inicio: 'inicio.jsx',
     sobreMi: 'sobre-mi.jsx',
