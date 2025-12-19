@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import './index.css';
+import './estilos/global.css';
 import { ThemeProvider } from './context/ThemeContext';
 
 const rootElement = document.getElementById('root');
