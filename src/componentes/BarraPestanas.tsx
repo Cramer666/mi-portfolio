@@ -17,24 +17,35 @@ const pestanas: Pestana[] = [
 
 const BarraPestanas: React.FC<Props> = ({ archivoAbierto, setArchivoAbierto }) => {
   return (
-    <div className="bg-[#252526] flex border-b border-gray-800 overflow-x-auto">
+    <div
+      className="
+        flex overflow-x-auto border-b
+        bg-gray-100 dark:bg-[#252526]
+        border-gray-300 dark:border-gray-800
+      "
+    >
       {pestanas.map((pestana) => (
         <div
           key={pestana.id}
           onClick={() => setArchivoAbierto(pestana.id)}
-          className={`flex items-center gap-2 px-3 sm:px-4 py-3 border-r border-gray-800 cursor-pointer whitespace-nowrap ${
-            archivoAbierto === pestana.id
-              ? 'bg-[#1e1e1e] border-t-2 border-t-blue-500'
-              : 'hover:bg-gray-700'
-          }`}
+          className={`
+            flex items-center gap-2 px-3 sm:px-4 py-3 border-r cursor-pointer whitespace-nowrap
+            border-gray-300 dark:border-gray-800
+            ${
+              archivoAbierto === pestana.id
+                ? 'bg-white dark:bg-[#1e1e1e] border-t-2 border-t-blue-500'
+                : 'hover:bg-gray-200 dark:hover:bg-gray-700'
+            }
+          `}
         >
           <pestana.icono size={16} className={pestana.color} />
-          <span className="text-xs sm:text-sm">{pestana.id}</span>
+          <span className="text-xs sm:text-sm text-black dark:text-gray-200">
+            {pestana.id}
+          </span>
         </div>
       ))}
     </div>
   );
 };
-
 
 export default BarraPestanas;
