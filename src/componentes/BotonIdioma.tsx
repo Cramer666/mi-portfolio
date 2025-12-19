@@ -1,3 +1,4 @@
+import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const BotonIdioma: React.FC = () => {
@@ -6,17 +7,19 @@ const BotonIdioma: React.FC = () => {
   return (
     <button
       onClick={toggleLang}
+      title={lang === 'es' ? 'Cambiar a inglés' : 'Switch to Spanish'}
       className="
-        w-full mt-4 px-3 py-2 rounded
-        text-sm font-semibold
-        bg-gray-200 text-gray-800
-        dark:bg-gray-700 dark:text-gray-200
-        hover:opacity-80 transition
+        w-8 h-8 flex items-center justify-center
+        rounded
+        text-lg
+        opacity-70 hover:opacity-100
+        transition
       "
     >
-      {lang === 'es' ? '🌎 English' : '🌎 Español'}
+      {lang === 'es' ? '🇦🇷' : '🇺🇸'}
     </button>
   );
 };
 
 export default BotonIdioma;
+
