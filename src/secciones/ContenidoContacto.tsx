@@ -140,27 +140,35 @@ const ContenidoContacto: React.FC = () => {
         </button>
       </div>
 
-      {/* CONTACTO DIRECTO */}
-      <div className="
+     {/* === CONTACTO DIRECTO === */}
+    <div
+      className="
         mt-10 ml-8 max-w-2xl p-6 rounded-lg border
         bg-white text-gray-800 border-gray-300
         dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700
-      ">
-        <p className="mb-4">{t.contacto.otros}</p>
-
-        <div className="flex flex-col sm:flex-row gap-4 opacity-70">
-          <div className="flex items-center gap-2">
-            <Mail size={18} /> <span>tluciaperronee.dev@gmail.com</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Github size={18} /> <span>github.com/...</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Linkedin size={18} /> <span>linkedin.com/in/.../span>
-          </div>
+      "
+    >
+      <p className="mb-4">
+        También podés contactarme directamente por:
+      </p>
+    
+      <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex items-center gap-2 opacity-70">
+          <Mail size={18} />
+          <span>tu-email@ejemplo.com</span>
+        </div>
+    
+        <div className="flex items-center gap-2 opacity-70">
+          <Github size={18} />
+          <span>github.com/tu-usuario</span>
+        </div>
+    
+        <div className="flex items-center gap-2 opacity-70">
+          <Linkedin size={18} />
+          <span>linkedin.com/in/tu-perfil</span>
         </div>
       </div>
-
+    </div>
       <div className="mt-6 text-gray-800 dark:text-white">{'}'}</div>
     </div>
   );
