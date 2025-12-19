@@ -1,6 +1,4 @@
-import { Github, Linkedin } from 'lucide-react';
-
-const ContenidoInicio: React.FC = () => {
+const ContenidoInicio = () => {
   return (
     <div className="p-8 animate-fade-in">
       <div className="bg-gray-800 border border-gray-700 rounded-lg p-6">
@@ -21,16 +19,24 @@ const ContenidoInicio: React.FC = () => {
 
             <div className="ml-8 space-y-2">
               <div>
-                <span className="text-blue-300">nombre</span>: <span className="text-green-300">"Lucia Perrone"</span>,
+                <span className="text-blue-300">nombre</span>:{" "}
+                <span className="text-green-300">"Lucia Perrone"</span>,
               </div>
               <div>
-                <span className="text-blue-300">titulo</span>: <span className="text-green-300">"Desarrolladora Full Stack Jr."</span>,
+                <span className="text-blue-300">titulo</span>:{" "}
+                <span className="text-green-300">
+                  "Desarrolladora Full Stack Jr."
+                </span>,
               </div>
               <div>
-                <span className="text-blue-300">ubicacion</span>: <span className="text-green-300">"General Belgrano, Buenos Aires"</span>,
+                <span className="text-blue-300">ubicacion</span>:{" "}
+                <span className="text-green-300">
+                  "General Belgrano, Buenos Aires"
+                </span>,
               </div>
               <div>
-                <span className="text-blue-300">disponible</span>: <span className="text-purple-400">true</span>,
+                <span className="text-blue-300">disponible</span>:{" "}
+                <span className="text-purple-400">true</span>,
               </div>
             </div>
 
