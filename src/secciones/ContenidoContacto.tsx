@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { Send, Check, AlertCircle, Mail, Github, Linkedin } from 'lucide-react';
 import { FormularioContacto, EstadoEnvio } from '../tipos';
 import { enviarEmail } from '../servicios/emailService';
+import { useTranslation } from '../hooks/useTranslation';
 
 const ContenidoContacto: React.FC = () => {
+  const { t } = useTranslation();
+
   const [formulario, setFormulario] = useState<FormularioContacto>({
     nombre: '',
     email: '',
     mensaje: ''
   });
+
   const [estadoEnvio, setEstadoEnvio] = useState<EstadoEnvio>(null);
   const [enviando, setEnviando] = useState(false);
 
@@ -44,6 +48,7 @@ const ContenidoContacto: React.FC = () => {
       </div>
 
       <div className="ml-8 max-w-2xl space-y-6">
+        {/* INPUTS */}
         {[
           { label: 'nombre', type: 'text', value: formulario.nombre },
           { label: 'email', type: 'email', value: formulario.email }
@@ -69,6 +74,7 @@ const ContenidoContacto: React.FC = () => {
           </div>
         ))}
 
+        {/* MENSAJE */}
         <div>
           <label className="block text-blue-500 dark:text-blue-300 mb-2">
             <span className="text-gray-800 dark:text-white">const</span> mensaje{' '}
@@ -89,32 +95,26 @@ const ContenidoContacto: React.FC = () => {
           />
         </div>
 
+        {/* MENSAJES */}
         {estadoEnvio === 'exito' && (
-          <div
-            className="
-              flex items-center gap-3 p-4 rounded border
-              bg-green-100 border-green-400
-              dark:bg-green-900/30 dark:border-green-500
-            "
-          >
+          <div className="flex items-center gap-3 p-4 rounded border
+            bg-green-100 border-green-400
+            dark:bg-green-900/30 dark:border-green-500">
             <Check className="text-green-500" />
-            <span>¡Mensaje enviado con éxito!</span>
+            <span>{t.contacto.enviado}</span>
           </div>
         )}
 
         {estadoEnvio === 'error' && (
-          <div
-            className="
-              flex items-center gap-3 p-4 rounded border
-              bg-red-100 border-red-400
-              dark:bg-red-900/30 dark:border-red-500
-            "
-          >
+          <div className="flex items-center gap-3 p-4 rounded border
+            bg-red-100 border-red-400
+            dark:bg-red-900/30 dark:border-red-500">
             <AlertCircle className="text-red-500" />
-            <span>Error al enviar. Completa todos los campos.</span>
+            <span>{t.contacto.error}</span>
           </div>
         )}
 
+        {/* BOTÓN */}
         <button
           onClick={manejarEnvio}
           disabled={enviando}
@@ -125,11 +125,11 @@ const ContenidoContacto: React.FC = () => {
           "
         >
           <Send size={18} />
-          {enviando ? 'Enviando...' : 'Enviar Mensaje'}
+          {enviando ? t.contacto.enviando : t.contacto.enviar}
         </button>
       </div>
 
-      {/* === CONTACTO DIRECTO (AGREGADO) === */}
+      {/* CONTACTO DIRECTO */}
       <div
         className="
           mt-10 ml-8 max-w-2xl p-6 rounded-lg border
@@ -137,9 +137,7 @@ const ContenidoContacto: React.FC = () => {
           dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700
         "
       >
-        <p className="mb-4">
-          También podés contactarme directamente por:
-        </p>
+        <p className="mb-4">{t.contacto.otros}</p>
 
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex items-center gap-2 opacity-70">
