@@ -7,10 +7,11 @@ const es = {
   },
   contacto: {
     titulo: 'Contacto',
-    enviar: 'Enviar Mensaje',
+    enviar: 'Enviar mensaje',
+    enviando: 'Enviando...',
     enviado: '¡Mensaje enviado con éxito!',
     error: 'Completá todos los campos',
-    otros: 'También podés contactarme por:',
+    otros: 'También podés contactarme directamente por:',
   },
 };
 
