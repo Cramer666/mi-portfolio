@@ -60,6 +60,16 @@ const ContenidoSobreMi: React.FC = () => {
 
       <div className="mt-6 text-gray-800 dark:text-white">{'}'}</div>
     </div>
+    <div className="pt-4 border-t border-gray-500/40">
+          <a
+            href="//cv/Lucia_Perrone_CV.pdf"
+            download
+            className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white px-5 py-2 rounded transition"
+          >
+            <Download size={18} />
+            Descargar CV
+          </a>
+   </div>
   );
 };
 
