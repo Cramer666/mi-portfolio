@@ -6,13 +6,14 @@ const BarraLateral: React.FC = () => {
   return (
     <div
       className="
-        hidden md:flex w-12 flex-col justify-between
+        hidden md:flex w-12 flex-col
+        justify-between
         border-r
         bg-gray-200 dark:bg-[#333333]
         border-gray-300 dark:border-gray-800
       "
     >
-      {/* ICONOS ARRIBA */}
+      {/* ICONOS SUPERIORES */}
       <div className="flex flex-col items-center py-4 gap-4">
         <FileText
           size={22}
@@ -28,8 +29,8 @@ const BarraLateral: React.FC = () => {
         />
       </div>
 
-      {/* BOTÓN IDIOMA ABAJO */}
-      <div className="p-2">
+      {/* ZONA INFERIOR – IDIOMA */}
+      <div className="flex flex-col items-center pb-3">
         <BotonIdioma />
       </div>
     </div>
@@ -37,4 +38,3 @@ const BarraLateral: React.FC = () => {
 };
 
 export default BarraLateral;
-
