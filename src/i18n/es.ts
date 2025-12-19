@@ -18,7 +18,13 @@ const es = {
     error: 'Completá todos los campos.',
     otros: 'También podés contactarme directamente por:',
   }
-
+  pestanas: {
+    inicio: 'inicio.jsx',
+    sobreMi: 'sobre-mi.jsx',
+    proyectos: 'proyectos.jsx',
+    habilidades: 'habilidades.jsx',
+    contacto: 'contacto.jsx',
+  }
 };
 
 export default es;
