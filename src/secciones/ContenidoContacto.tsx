@@ -148,10 +148,9 @@ const ContenidoContacto: React.FC = () => {
         dark:bg-gray-800 dark:text-gray-300 dark:border-gray-700
       "
     >
-      <p className="mb-4">
-        También podés contactarme directamente por:
-      </p>
-    
+    <p className="mb-4">
+      {t.contacto.otros}
+    </p>
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex items-center gap-2 opacity-70">
           <Mail size={18} />
