@@ -32,37 +32,40 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#1e1e1e] text-gray-300 flex flex-col font-mono">
-      {/* Barra superior */}
+    <div
+      className="
+        h-screen flex flex-col font-mono
+        bg-[#f3f2ef] text-gray-800
+        dark:bg-[#1e1e1e] dark:text-gray-300
+      "
+    >
       <BarraSuperior />
 
-      {/* Cuerpo principal */}
-      <div className="flex flex-1 min-h-0 overflow-hidden">
-        {/* Barra lateral fija */}
+      <div className="flex flex-1 overflow-hidden">
         <BarraLateral />
 
-        {/* Explorador de archivos */}
         <ExploradorArchivos
           archivoAbierto={archivoAbierto}
           setArchivoAbierto={setArchivoAbierto}
         />
 
-        {/* Área central */}
-        <div className="flex flex-1 flex-col min-h-0 overflow-hidden">
-          {/* Pestañas */}
+        <div className="flex-1 flex flex-col overflow-hidden">
           <BarraPestanas
             archivoAbierto={archivoAbierto}
             setArchivoAbierto={setArchivoAbierto}
           />
 
-          {/* Contenido (ACÁ estaba el problema del fondo) */}
-          <div className="flex-1 min-h-0 overflow-y-auto bg-[#1e1e1e]">
-            <div className="min-h-full w-full">
-              {renderContenido()}
-            </div>
+          {/* ESTE ES EL FONDO DE CADA SECCIÓN */}
+          <div
+            className="
+              flex-1 overflow-y-auto
+              bg-[#f3f2ef]
+              dark:bg-[#1e1e1e]
+            "
+          >
+            {renderContenido()}
           </div>
 
-          {/* Barra inferior */}
           <BarraInferior />
         </div>
       </div>
