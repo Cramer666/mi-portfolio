@@ -7,10 +7,11 @@ const en = {
   },
   contacto: {
     titulo: 'Contact',
-    enviar: 'Send Message',
+    enviar: 'Send message',
+    enviando: 'Sending...',
     enviado: 'Message sent successfully!',
     error: 'Please fill in all fields',
-    otros: 'You can also contact me via:',
+    otros: 'You can also contact me directly via:',
   },
 };
 
