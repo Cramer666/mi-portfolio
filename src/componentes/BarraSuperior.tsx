@@ -1,9 +1,14 @@
 import React from 'react';
-import { Code, Sun, Moon } from 'lucide-react';
+import { Code, Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import BotonIdioma from './BotonIdioma';
 
-const BarraSuperior: React.FC = () => {
+interface Props {
+  menuAbierto?: boolean;
+  setMenuAbierto?: (abierto: boolean) => void;
+}
+
+const BarraSuperior: React.FC<Props> = ({ menuAbierto = false, setMenuAbierto }) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -23,6 +28,21 @@ const BarraSuperior: React.FC = () => {
       </div>
 
       <div className="ml-auto flex items-center gap-2">
+        {/* Botón menú móvil - solo visible en móvil */}
+        {setMenuAbierto && (
+          <button
+            onClick={() => setMenuAbierto(!menuAbierto)}
+            className="md:hidden p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition"
+            title="Explorador de archivos"
+          >
+            {menuAbierto ? (
+              <X size={18} className="text-gray-700 dark:text-gray-300" />
+            ) : (
+              <Menu size={18} className="text-gray-700 dark:text-gray-300" />
+            )}
+          </button>
+        )}
+
         <BotonIdioma />
 
         {/* BOTÓN TEMA */}

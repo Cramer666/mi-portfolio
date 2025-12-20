@@ -15,6 +15,7 @@ import ContenidoReadme from './secciones/ContenidoReadme';
 const App: React.FC = () => {
   const [archivoAbierto, setArchivoAbierto] = useState('README.md');
   const [pestanasAbiertas, setPestanasAbiertas] = useState(['README.md']);
+  const [menuExploradorAbierto, setMenuExploradorAbierto] = useState(false);
 
   const renderContenido = () => {
     // Si no hay pestañas abiertas, mostrar pantalla vacía
@@ -60,7 +61,10 @@ const App: React.FC = () => {
         dark:bg-[#1e1e1e] dark:text-gray-300
       "
     >
-      <BarraSuperior />
+      <BarraSuperior 
+        menuAbierto={menuExploradorAbierto}
+        setMenuAbierto={setMenuExploradorAbierto}
+      />
 
       <div className="flex flex-1 overflow-hidden">
         <BarraLateral />
@@ -70,6 +74,8 @@ const App: React.FC = () => {
           setArchivoAbierto={setArchivoAbierto}
           pestanasAbiertas={pestanasAbiertas}
           setPestanasAbiertas={setPestanasAbiertas}
+          menuAbierto={menuExploradorAbierto}
+          setMenuAbierto={setMenuExploradorAbierto}
         />
 
         <div className="flex-1 flex flex-col overflow-hidden">
