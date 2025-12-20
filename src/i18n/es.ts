@@ -36,7 +36,7 @@ const es = {
     cvTexto: 'Si querés conocer más sobre mi experiencia y formación:',
     cvBoton: 'Descargar CV'
   },
-    proyectos: {
+  proyectos: {
     fn: 'proyectos',
     verCaracteristicas: 'Ver características',
     ocultarCaracteristicas: 'Ocultar características',
@@ -57,14 +57,15 @@ const es = {
   explorador: {
     titulo: 'Explorador',
     archivos: [
-      { nombre: 'inicio.jsx', archivo: 'inicio' },
-      { nombre: 'sobre-mi.jsx', archivo: 'sobreMi' },
-      { nombre: 'proyectos.jsx', archivo: 'proyectos' },
-      { nombre: 'habilidades.jsx', archivo: 'habilidades' },
-      { nombre: 'contacto.jsx', archivo: 'contacto' }
+      { nombre: 'inicio.jsx', archivo: 'inicio.jsx' },
+      { nombre: 'sobre-mi.jsx', archivo: 'sobre-mi.jsx' },
+      { nombre: 'proyectos.jsx', archivo: 'proyectos.jsx' },
+      { nombre: 'habilidades.jsx', archivo: 'habilidades.jsx' },
+      { nombre: 'contacto.jsx', archivo: 'contacto.jsx' }
     ]
   },
   pestanas: {
+    readme: 'README.md',
     inicio: 'inicio.jsx',
     sobreMi: 'sobre-mi.jsx',
     proyectos: 'proyectos.jsx',

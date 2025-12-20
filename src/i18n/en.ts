@@ -36,14 +36,14 @@ const en = {
     cvTexto: 'If you want to know more about my experience and education:',
     cvBoton: 'Download CV'
   },
-    proyectos: {
+  proyectos: {
     fn: 'projects',
     verCaracteristicas: 'View features',
     ocultarCaracteristicas: 'Hide features',
     codigo: 'Code',
     demo: 'Demo'
   },
-    habilidades: {
+  habilidades: {
     fn: 'skills',
     frontend: 'Frontend',
     backend: 'Backend',
@@ -57,14 +57,15 @@ const en = {
   explorador: {
     titulo: 'Explorer',
     archivos: [
-      { nombre: 'home.jsx', archivo: 'inicio' },
-      { nombre: 'about-me.jsx', archivo: 'sobreMi' },
-      { nombre: 'projects.jsx', archivo: 'proyectos' },
-      { nombre: 'skills.jsx', archivo: 'habilidades' },
-      { nombre: 'contact.jsx', archivo: 'contacto' }
+      { nombre: 'home.jsx', archivo: 'inicio.jsx' },
+      { nombre: 'about-me.jsx', archivo: 'sobre-mi.jsx' },
+      { nombre: 'projects.jsx', archivo: 'proyectos.jsx' },
+      { nombre: 'skills.jsx', archivo: 'habilidades.jsx' },
+      { nombre: 'contact.jsx', archivo: 'contacto.jsx' }
     ]
   },
   pestanas: {
+    readme: 'README.md',
     inicio: 'home.jsx',
     sobreMi: 'about-me.jsx',
     proyectos: 'projects.jsx',

@@ -7,8 +7,8 @@ const BarraLateral: React.FC = () => {
       bg-gray-200 dark:bg-[#333333]
       border-gray-300 dark:border-gray-800"
     >
-      <FileText className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition" />
-      <Folder className="text-gray-400 hover:text-white cursor-pointer transition" size={24} />
+      <FileText className="text-gray-600 dark:text-gray-400" />
+      <Folder className="text-gray-600 dark:text-gray-400" size={24} />
       <Code className="text-blue-400" size={24} />
     </div>
   );
