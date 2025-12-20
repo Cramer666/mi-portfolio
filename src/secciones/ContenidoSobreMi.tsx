@@ -80,7 +80,7 @@ const sections = [
         </p>
 
         <a
-          href="/cv/Lucia_Perrone_CV.pdf"
+          href="/cv/CV_Lucia_Perrone_Junior_IT.doc"
           download
           className="
             inline-flex items-center gap-2
