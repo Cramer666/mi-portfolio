@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Home, User, FolderOpen, Zap, Mail, FileCode } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 import es from '../i18n/es';
