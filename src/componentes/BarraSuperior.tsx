@@ -1,5 +1,5 @@
-import React from 'react';
-import { Code, Sun, Moon, Menu, X } from 'lucide-react';
+import React, { useState } from 'react';
+import { Code, Sun, Moon, Menu, X, Volume2 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import BotonIdioma from './BotonIdioma';
 
@@ -10,6 +10,21 @@ interface Props {
 
 const BarraSuperior: React.FC<Props> = ({ menuAbierto = false, setMenuAbierto }) => {
   const { theme, toggleTheme } = useTheme();
+  const [leyendo, setLeyendo] = useState(false);
+
+  const toggleLectura = () => {
+    if (leyendo) {
+      window.speechSynthesis.cancel();
+      setLeyendo(false);
+    } else {
+      const texto = document.body.innerText;
+      const utterance = new SpeechSynthesisUtterance(texto);
+      utterance.lang = 'es-ES';
+      utterance.onend = () => setLeyendo(false);
+      window.speechSynthesis.speak(utterance);
+      setLeyendo(true);
+    }
+  };
 
   return (
     <div
@@ -26,9 +41,7 @@ const BarraSuperior: React.FC<Props> = ({ menuAbierto = false, setMenuAbierto })
           Portfolio Lucia Perrone
         </span>
       </div>
-
       <div className="ml-auto flex items-center gap-2">
-        {/* Botón menú móvil - solo visible en móvil */}
         {setMenuAbierto && (
           <button
             onClick={() => setMenuAbierto(!menuAbierto)}
@@ -42,10 +55,17 @@ const BarraSuperior: React.FC<Props> = ({ menuAbierto = false, setMenuAbierto })
             )}
           </button>
         )}
-
         <BotonIdioma />
-
-        {/* BOTÓN TEMA */}
+        <button
+          onClick={toggleLectura}
+          className="p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition"
+          title={leyendo ? 'Detener lectura' : 'Activar lectura de voz'}
+        >
+          <Volume2 
+            size={18} 
+            className={leyendo ? 'text-green-500 dark:text-green-400' : 'text-gray-700 dark:text-gray-300'} 
+          />
+        </button>
         <button
           onClick={toggleTheme}
           className="p-2 rounded hover:bg-gray-300 dark:hover:bg-gray-700 transition"
